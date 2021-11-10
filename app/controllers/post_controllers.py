@@ -44,6 +44,6 @@ def insert_new_post():
         data = request.get_json()
         new_post = Post(**data)
         new_post.insert_post()
-        return find_by_id(new_post.id)
+        return find_by_id(new_post.id), 201
     except:
         return {"message": "Requisição invalida"}, 400
